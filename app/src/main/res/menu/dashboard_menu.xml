@@ -1,14 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:id="@+id/nav_profile" android:title="Profile" android:icon="@drawable/ic_outline_account_circle_24px"/>
-    <item android:id="@+id/nav_measurement" android:title="My Measurement" android:icon="@drawable/ic_outline_gesture_24px"/>
-    <item android:id="@+id/nav_orders" android:title="My Orders" android:icon="@drawable/ic_round_shopping_basket_24px" android:iconTint="@color/colorPrimaryDark"/>
-    <item android:id="@+id/nav_favorite" android:title="Favorite Designers" android:icon="@drawable/ic_outline_favorite_24px"/>
-    <item android:id="@+id/nav_cart" android:title="My Cart" android:icon="@drawable/ic_shopping_cart"/>
-    <item android:id="@+id/nav_changepassword" android:title="Change Password" android:icon="@drawable/ic_dialpad" android:iconTint="@color/colorPrimaryDark"/>
-    <item android:id="@+id/nav_share" android:title="Share" android:icon="@drawable/ic_menu_share"/>
-    <item android:id="@+id/nav_settings" android:title="Settings" android:icon="@drawable/ic_outline_tune_24px"/>
+    <item android:id="@+id/nav_profile"
+        android:title="@string/edit_profile"
+        android:icon="@drawable/ic_outline_account_circle_24px"/>
+
+    <item android:id="@+id/nav_measurement"
+        android:title="@string/my_measurement"
+        android:icon="@drawable/ic_outline_gesture_24px"/>
+
+    <item android:id="@+id/nav_find_designers"
+        android:title="@string/find_designers"
+        android:icon="@drawable/ic_outline_favorite_24px"/>
+
+    <item android:id="@+id/nav_favorite"
+        android:title="@string/checkout_designs"
+        android:icon="@drawable/ic_outline_favorite_24px"/>
+
+    <item android:id="@+id/nav_orders"
+        android:title="@string/my_orders"
+        android:icon="@drawable/ic_round_shopping_basket_24px"/>
+
+    <item android:id="@+id/nav_cart"
+        android:title="@string/designs_collection"
+        android:icon="@drawable/ic_style"/>
+
+    <item android:id="@+id/nav_changepassword"
+        android:title="@string/change_password"
+        android:icon="@drawable/ic_dialpad" />
+
+    <item android:id="@+id/nav_share"
+        android:title="@string/become_a_vendor"
+        android:icon="@drawable/ic_menu_share"/>
+
+    <item android:id="@+id/nav_settings"
+        android:title="@string/settings"
+        android:icon="@drawable/ic_outline_tune_24px"/>
 
 
 </menu>

@@ -9,6 +9,4 @@
     tools:showIn="@layout/dashbord_layout"
     android:orientation="vertical"
     android:id="@+id/linearLayout_for_fragment">
-
-
 </LinearLayout>

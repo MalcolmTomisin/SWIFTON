@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    android:layout_margin="15dp">
+
+    <ImageView
+        android:id="@+id/displayimage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorGray"
+        android:scaleType="centerCrop"
+        android:scaleY="1"
+        android:scaleX="1"
+        android:src="@drawable/tag"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="bottom"
+        android:background="@color/colorPrimaryDarkFaid"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+
+        <TextView
+            android:id="@+id/productname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Design Name"
+            android:textColorHint="@color/colorWhite"
+            android:textSize="18sp"
+            android:fontFamily="@font/roboto_regular"
+            android:padding="5dp"/>
+
+        <TextView
+            android:id="@+id/productdesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Description"
+            android:textColorHint="@color/colorWhite"
+            android:textSize="18sp"
+            android:fontFamily="@font/roboto_regular"
+            android:padding="5dp"
+            android:layout_marginTop="5dp"/>
+        <TextView
+            android:id="@+id/producttype"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Design Type"
+            android:textColorHint="@color/colorWhite"
+            android:textSize="18sp"
+            android:fontFamily="@font/roboto_regular"
+            android:padding="5dp"
+            android:layout_marginTop="5dp"/>
+
+        <TextView
+            android:id="@+id/productdesigner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Designers: Pablo fine Demins"
+            android:textColorHint="@color/colorWhite"
+            android:textSize="18sp"
+            android:fontFamily="@font/roboto_regular"
+            android:padding="5dp"
+            android:layout_marginTop="5dp"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/productprize"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Prize: 5,000.00"
+                android:textColorHint="@color/colorWhite"
+                android:textSize="18sp"
+                android:fontFamily="@font/roboto_regular"
+                android:padding="5dp"
+                android:layout_marginTop="5dp"/>
+
+            <TextView
+            android:id="@+id/productsize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="size: 44 L"
+                android:layout_toEndOf="@+id/productprize"
+                android:textColorHint="@color/colorWhite"
+                android:textSize="18sp"
+                android:fontFamily="@font/roboto_regular"
+            android:padding="5dp"
+            android:layout_marginTop="5dp"/>
+
+            <TextView
+                android:id="@+id/productcolor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Color: Navy Blue and Orange"
+                android:layout_toEndOf="@+id/productsize"
+                android:textColorHint="@color/colorWhite"
+                android:textSize="18sp"
+                android:fontFamily="@font/roboto_regular"
+                android:padding="5dp"
+                android:layout_marginTop="5dp"/>
+
+            <TextView
+                android:id="@+id/availablecount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Avaialble number: 3"
+                android:layout_below="@+id/productcolor"
+                android:textColorHint="@color/colorWhite"
+                android:textSize="18sp"
+                android:fontFamily="@font/roboto_regular"
+                android:padding="5dp"
+                android:layout_marginTop="5dp"/>
+
+            <TextView
+                android:id="@+id/productviews"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Views: "
+                android:layout_below="@+id/productcolor"
+                android:textColorHint="@color/colorWhite"
+                android:textSize="18sp"
+                android:fontFamily="@font/roboto_regular"
+                android:layout_toEndOf="@+id/availablecount"
+                android:padding="5dp"
+                android:layout_marginTop="5dp"/>
+
+            <CheckBox
+                android:id="@+id/productcheck"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/productcolor"
+                android:layout_toStartOf="@+id/productdel"/>
+
+            <ImageView
+                android:id="@+id/productdel"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/ic_close_black_48dp"
+                android:background="#fff"
+                android:layout_below="@+id/productcolor"
+                android:padding="5dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="5dp"/>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

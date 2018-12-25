@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
+    android:background="@color/colorPrimaryDarkFaid"
     android:padding="5dp"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/fragment_top_designers"
@@ -16,7 +17,9 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         app:defaultQueryHint="Find Current Events..."
+        android:outlineProvider="bounds"
         android:tooltipText="Search top Designers"
+        android:background="@color/colorGray"
         android:elevation="6dp"/>
 
 

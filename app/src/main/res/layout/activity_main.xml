@@ -57,7 +57,7 @@
         android:layout_below="@+id/colltb"
         android:layout_marginStart="15dp"
         android:layout_marginEnd="15dp"
-        app:cardElevation="8dp"
+        app:cardElevation="4dp"
         app:cardPreventCornerOverlap="true"
         android:layout_marginTop="-50dp">
 
@@ -106,14 +106,13 @@
 
         <LinearLayout 
             android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:orientation="vertical"
             android:paddingLeft="15dp"
             android:paddingRight="15dp"
-            android:paddingBottom="30dp"
-            android:paddingTop="130dp"
-            android:layout_height="wrap_content"
+            android:paddingTop="30dp"
             android:focusable="true"
-            android:layout_gravity="center_vertical">
+            android:layout_gravity="center_horizontal">
 
             <Button
                 android:id="@+id/buttonToolbarFab"

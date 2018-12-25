@@ -32,7 +32,7 @@ public class LoginActivity extends AppCompatActivity {
 
     protected String enteredUsername;
 
-    String URL= "http:10.11.32.26/swiftonbe/app/login.php";
+    String URL= "http:10.11.32.25/swiftonbe/app/login.php";
     private static final String TAG = "RegisterActivity";
 
     private static final String TAG_SUCCESS = "success";

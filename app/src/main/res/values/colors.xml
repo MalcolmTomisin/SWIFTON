@@ -9,6 +9,8 @@
     <color name="colorIndigoLight">#9400D3</color>
     <color name="colorPrimaryLight">#483D8B</color>
     <color name="colorPrimaryDark">#450078</color>
+    <color name="colorPrimary">#3e0c63</color>
+    <color name="colorAccent">#c382f2</color>
     <color name="colorPrimaryDarkFaid">#c6450078</color>
 .    <color name="colorDarkBlue">#191970</color>
     <color name="colorBlack">#000000</color>

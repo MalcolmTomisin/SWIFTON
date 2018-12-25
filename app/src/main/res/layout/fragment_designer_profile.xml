@@ -1,14 +1,185 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragments.DesignerProfileFragment">
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.swifton.swifton.Fragments.DesignerProfileFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:background="@color/colorMaroonDark">
 
-</FrameLayout>
+        <ImageView
+            android:id="@+id/profileLogo"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/ic_microphone_black_48dp"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="20dp"
+            android:tint="@color/colorGray" />
+        <ImageView
+            android:id="@+id/verified"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|start"
+            android:src="@drawable/ic_star"
+            android:tint="@color/colorGray"
+            android:layout_margin="16dp"/>
+        <TextView
+            android:id="@+id/comlevel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:padding="10dp"
+            android:hint="Premium"
+            android:layout_below="@+id/profileLogo"/>
+    </RelativeLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDarkFaid">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:id="@+id/comusername"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:padding="5dp"
+                android:hint="username"/>
+
+            <TextView
+                android:id="@+id/comname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:padding="5dp"
+                android:hint="company name"/>
+
+            <TextView
+                android:id="@+id/comregno"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:padding="5dp"
+                android:hint="Registration Number"/>
+
+            <TextView
+                android:id="@+id/comemail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:padding="5dp"
+                android:hint="Email"/>
+
+            <TextView
+                android:id="@+id/comphone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:padding="5dp"
+                android:hint="Phone"/>
+
+            <TextView
+                android:id="@+id/comzipcode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:padding="5dp"
+                android:hint="Zipcode"/>
+
+            <TextView
+                android:id="@+id/comaddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:padding="5dp"
+                android:hint="Address"/>
+
+            <TextView
+                android:id="@+id/comcity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:padding="5dp"
+                android:hint="City"/>
+
+            <TextView
+                android:id="@+id/comstate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:padding="5dp"
+                android:hint="State"/>
+            <TextView
+                android:id="@+id/comcountry"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:padding="5dp"
+                android:hint="Country"/>
+
+            <TextView
+                android:id="@+id/comwebsite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:padding="5dp"
+                android:hint="Website"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/comid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="id"
+                    android:layout_margin="5dp"
+                    android:padding="5dp"/>
+                <TextView
+                    android:id="@+id/comcode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="Company Code"
+                    android:layout_margin="5dp"
+                    android:padding="5dp"
+                    android:layout_centerHorizontal="true"/>
+
+                <TextView
+                    android:id="@+id/comstatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="Status"
+                    android:layout_alignParentEnd="true"
+                    android:layout_margin="5dp"
+                    android:padding="5dp"/>
+            </RelativeLayout>
+
+
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+   <android.support.design.widget.FloatingActionButton
+       android:id="@+id/editProfile"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       app:fabSize="normal"
+       android:src="@drawable/ic_add_white"
+       android:layout_margin="16dp"
+       android:layout_gravity="bottom|end"
+       app:backgroundTint="@color/colorPrimaryDark"/>
+
+</LinearLayout>

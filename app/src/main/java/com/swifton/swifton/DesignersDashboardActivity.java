@@ -13,14 +13,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.swifton.swifton.Fragments.AddDesignsFragment;
 import com.swifton.swifton.Fragments.CustomerOrdersFragment;
 import com.swifton.swifton.Fragments.CustomersFragment;
 import com.swifton.swifton.Fragments.DashboardFragment;
 import com.swifton.swifton.Fragments.DeliveredFragment;
 import com.swifton.swifton.Fragments.DesignerProfileFragment;
-import com.swifton.swifton.Fragments.MyCartFragment;
+import com.swifton.swifton.Fragments.MyProductsFragment;
 import com.swifton.swifton.Fragments.PendingFragment;
-import com.swifton.swifton.Fragments.UserHomeFragment;
 
 public class DesignersDashboardActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -52,9 +52,10 @@ public class DesignersDashboardActivity extends AppCompatActivity implements Nav
         navigationView.setNavigationItemSelectedListener(this);
 
         setupDrawer();
-        UserHomeFragment homeFragment = new UserHomeFragment();
-        FragmentManager managerhm = getSupportFragmentManager();
-        managerhm.beginTransaction().replace(R.id.linearLayout_for_fragment, homeFragment, homeFragment.getTag()).commit();
+
+        DashboardFragment dashboardFragment = new DashboardFragment();
+        FragmentManager dashboardmanager = getSupportFragmentManager();
+        dashboardmanager.beginTransaction().replace(R.id.linearLayout_for_fragment, dashboardFragment, dashboardFragment.getTag()).commit();
     }
 
     @Override
@@ -137,42 +138,49 @@ public class DesignersDashboardActivity extends AppCompatActivity implements Nav
                 mActivityTitle = "Dashboard";
                 DashboardFragment dashboardFragment = new DashboardFragment();
                 FragmentManager dashboardmanager = getSupportFragmentManager();
-                dashboardmanager.beginTransaction().replace(R.id.designerLinearLayout_for_fragment, dashboardFragment, dashboardFragment.getTag()).commit();
+                dashboardmanager.beginTransaction().replace(R.id.linearLayout_for_fragment, dashboardFragment, dashboardFragment.getTag()).commit();
+                break;
+
+            case  R.id.nav_add:
+                mActivityTitle = "Add Designs";
+                AddDesignsFragment adddesignsFragment = new AddDesignsFragment();
+                FragmentManager adddesignmanager = getSupportFragmentManager();
+                adddesignmanager.beginTransaction().replace(R.id.linearLayout_for_fragment, adddesignsFragment, adddesignsFragment.getTag()).commit();
                 break;
 
             case  R.id.nav_profile:
                 mActivityTitle = "Edit Profile";
                 DesignerProfileFragment designerprofileFragment = new DesignerProfileFragment();
                 FragmentManager profilemanager = getSupportFragmentManager();
-                profilemanager.beginTransaction().replace(R.id.designerLinearLayout_for_fragment, designerprofileFragment, designerprofileFragment.getTag()).commit();
+                profilemanager.beginTransaction().replace(R.id.linearLayout_for_fragment, designerprofileFragment, designerprofileFragment.getTag()).commit();
                 break;
 
             case R.id.nav_products:
                 mActivityTitle = "Products";
-                MyCartFragment productFragment = new MyCartFragment();
+                MyProductsFragment productFragment = new MyProductsFragment();
                 FragmentManager productmanager = getSupportFragmentManager();
-                productmanager.beginTransaction().replace(R.id.designerLinearLayout_for_fragment, productFragment, productFragment.getTag()).commit();
+                productmanager.beginTransaction().replace(R.id.linearLayout_for_fragment, productFragment, productFragment.getTag()).commit();
                 break;
 
             case R.id.nav_pending:
                 mActivityTitle = "Pending Orders";
                 PendingFragment pendingFragment = new PendingFragment();
                 FragmentManager pendingmanager = getSupportFragmentManager();
-                pendingmanager.beginTransaction().replace(R.id.designerLinearLayout_for_fragment, pendingFragment, pendingFragment.getTag()).commit();
+                pendingmanager.beginTransaction().replace(R.id.linearLayout_for_fragment, pendingFragment, pendingFragment.getTag()).commit();
                 break;
 
             case R.id.nav_orders:
                 mActivityTitle = "Orders";
                 CustomerOrdersFragment ordersFragment = new CustomerOrdersFragment();
                 FragmentManager ordersmanager = getSupportFragmentManager();
-                ordersmanager.beginTransaction().replace(R.id.designerLinearLayout_for_fragment, ordersFragment, ordersFragment.getTag()).commit();
+                ordersmanager.beginTransaction().replace(R.id.linearLayout_for_fragment, ordersFragment, ordersFragment.getTag()).commit();
                 break;
 
             case R.id.nav_delivered:
                 mActivityTitle = "delivered Orders";
                DeliveredFragment deliveredFragment = new DeliveredFragment();
                 FragmentManager deliveredmanager = getSupportFragmentManager();
-                deliveredmanager.beginTransaction().replace(R.id.designerLinearLayout_for_fragment, deliveredFragment, deliveredFragment.getTag()).commit();
+                deliveredmanager.beginTransaction().replace(R.id.linearLayout_for_fragment, deliveredFragment, deliveredFragment.getTag()).commit();
                 break;
 
             case R.id.nav_customers:
@@ -191,11 +199,11 @@ public class DesignersDashboardActivity extends AppCompatActivity implements Nav
                 mActivityTitle = "Change Password";
 //                  SettingsFragment settingsFragment = new SettingsFragment();
 //                  FragmentManager manager1 = getSupportFragmentManager();
-//                  manager1.beginTransaction().replace(R.id.designerLinearLayout_for_fragment, settingsFragment, settingsFragment.getTag()).commit();
+//                  manager1.beginTransaction().replace(R.id.linearLayout_for_fragment, settingsFragment, settingsFragment.getTag()).commit();
 
                 break;
         }
-        DrawerLayout drawer = findViewById(R.id.drawerLayout);
+        DrawerLayout drawer = findViewById(R.id.dDrawerLayout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }

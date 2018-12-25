@@ -20,4 +20,20 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
+    <string name="change_password">Change Password</string>
+    <string name="my_orders">My Orders</string>
+    <string name="designs_collection">Designs Collection</string>
+    <string name="checkout_designs">Checkout Designs</string>
+    <string name="become_a_vendor">Become a Vendor</string>
+    <string name="settings">Settings</string>
+    <string name="find_designers">Find Designers</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="my_measurement">My Measurement</string>
+    <string name="collaborate">Collaborate</string>
+    <string name="delivered_orders">Delivered Orders</string>
+    <string name="pending_orders">Pending Orders</string>
+    <string name="my_customers">My Customers</string>
+    <string name="my_design_collection">My Design Collection</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="my_dealers">My Dealers</string>
 </resources>

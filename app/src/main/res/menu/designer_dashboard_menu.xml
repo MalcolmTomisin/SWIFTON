@@ -2,38 +2,43 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:id="@+id/nav_dashboard"
-        android:title="Dashboard"
-        android:icon="@drawable/ic_home"/>
+        android:title="@string/dashboard"
+        android:icon="@drawable/ic_dashboard"/>
 
-    <item android:id="@+id/nav_profile" android:title="Edit Profile"
+    <item android:id="@+id/nav_add"
+        android:title="Add Designs"
+        android:icon="@drawable/ic_add_black_24dp"/>
+
+    <item android:id="@+id/nav_profile"
+        android:title="Edit Company Profile"
         android:icon="@drawable/ic_outline_account_circle_24px"/>
 
     <item android:id="@+id/nav_products"
-        android:title="Products"
-        android:icon="@drawable/ic_outline_gesture_24px"/>
-
-    <item android:id="@+id/nav_orders"
-        android:title="Orders"
-        android:icon="@drawable/ic_round_shopping_basket_24px"/>
+        android:title="@string/my_design_collection"
+        android:icon="@drawable/ic_style"/>
 
     <item android:id="@+id/nav_customers"
-        android:title="Customers"
-        android:icon="@drawable/ic_outline_favorite_24px"/>
+        android:title="@string/my_customers"
+        android:icon="@drawable/ic_group"/>
 
     <item android:id="@+id/nav_pending"
-        android:title="Pending Orders"
-        android:icon="@drawable/ic_shopping_cart"/>
+        android:title="@string/pending_orders"
+        android:icon="@drawable/ic_watch_later"/>
 
     <item android:id="@+id/nav_delivered"
-        android:title="Delivered"
-        android:icon="@drawable/ic_shopping_cart"/>
+        android:title="@string/delivered_orders"
+        android:icon="@drawable/ic_sentiment_satisfied"/>
+
+    <item android:id="@+id/nav_orders"
+        android:title="@string/collaborate"
+        android:icon="@drawable/ic_device_hub"/>
 
     <item android:id="@+id/nav_changepassword"
-        android:title="Change Password"
+        android:title="@string/change_password"
         android:icon="@drawable/ic_dialpad"/>
 
     <item android:id="@+id/nav_share"
-        android:title="Share"
-        android:icon="@drawable/ic_menu_share"/>
+        android:title="@string/my_dealers"
+        android:icon="@drawable/ic_person"/>
 
 </menu>

@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Fragments.AddDesignsFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp">
+        <ImageView
+            android:id="@+id/imgview1"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:scaleType="center"
+            android:scaleX="1"
+            android:scaleY="1"
+            android:src="@drawable/akachi"
+            android:layout_alignParentStart="true"/>
+        <ImageView
+            android:id="@+id/imgview2"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:scaleType="center"
+            android:scaleX="1"
+            android:scaleY="1"
+            android:layout_toEndOf="@+id/imgview1"
+            android:src="@drawable/album6"/>
+        <ImageView
+            android:id="@+id/imgview3"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:scaleType="center"
+            android:scaleX="1"
+            android:scaleY="1"
+            android:layout_toEndOf="@+id/imgview2"
+            android:src="@drawable/album1"/>
+        <ImageView
+            android:id="@+id/imgview4"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:scaleType="center"
+            android:scaleX="1"
+            android:scaleY="1"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/album2"/>
+    </RelativeLayout>
+
+   <android.support.v4.widget.NestedScrollView
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       >
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:orientation="vertical"
+           android:background="@color/colorWhite">
+
+
+           <android.support.design.widget.TextInputLayout
+               android:id="@+id/productname"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:textColorHint="@color/colorPrimaryDark"
+               android:layout_marginStart="20dp"
+               android:layout_marginEnd="20dp"
+               android:layout_marginTop="5dp"
+               android:padding="8dp"
+               android:hint="Product Name">
+               <EditText
+                   android:id="@+id/txtproductName"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   />
+
+           </android.support.design.widget.TextInputLayout>
+
+           <android.support.design.widget.TextInputLayout
+               android:id="@+id/producttype"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:textColorHint="@color/colorPrimaryDark"
+               android:layout_marginStart="20dp"
+               android:layout_marginEnd="20dp"
+               android:padding="8dp"
+               android:hint="Product Type">
+               <EditText
+                   android:id="@+id/txtproductType"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   />
+
+           </android.support.design.widget.TextInputLayout>
+
+           <android.support.design.widget.TextInputLayout
+               android:id="@+id/sellingprice"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:textColorHint="@color/colorPrimaryDark"
+               android:layout_marginStart="20dp"
+               android:layout_marginEnd="20dp"
+               android:padding="8dp"
+               android:hint="Selling Price">
+               <EditText
+                   android:id="@+id/txtsellingPrice"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   />
+
+           </android.support.design.widget.TextInputLayout>
+           <android.support.design.widget.TextInputLayout
+               android:id="@+id/displayprice"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:textColorHint="@color/colorPrimaryDark"
+               android:layout_marginStart="20dp"
+               android:layout_marginEnd="20dp"
+               android:padding="8dp"
+               android:hint="Display Price">
+               <EditText
+                   android:id="@+id/txtdisplayPrice"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   />
+
+           </android.support.design.widget.TextInputLayout>
+
+           <android.support.design.widget.TextInputLayout
+               android:id="@+id/productcolor"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:textColorHint="@color/colorPrimaryDark"
+               android:layout_marginStart="20dp"
+               android:layout_marginEnd="20dp"
+               android:padding="8dp"
+               android:hint="Product Color">
+               <EditText
+                   android:id="@+id/txtproductColor"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   />
+
+           </android.support.design.widget.TextInputLayout>
+           <android.support.design.widget.TextInputLayout
+               android:id="@+id/productsize"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:textColorHint="@color/colorPrimaryDark"
+               android:layout_marginStart="20dp"
+               android:layout_marginEnd="20dp"
+               android:padding="8dp"
+               android:hint="Product Size">
+               <EditText
+                   android:id="@+id/txtproductSize"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   />
+
+           </android.support.design.widget.TextInputLayout>
+           <android.support.design.widget.TextInputLayout
+               android:id="@+id/productdescription"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:textColorHint="@color/colorPrimaryDark"
+               android:layout_marginStart="20dp"
+               android:layout_marginEnd="20dp"
+               android:layout_marginTop="15dp"
+               android:padding="8dp"
+               android:hint="Product Description">
+               <EditText
+                   android:id="@+id/txtproductDescription"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   />
+
+           </android.support.design.widget.TextInputLayout>
+
+           <Button
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:background="@color/colorPrimaryDarkFaid"
+               android:textColor="#fff"
+               android:layout_gravity="bottom"
+               android:text="Add Design"
+               android:textSize="25sp"
+               android:layout_marginTop="15dp"
+               android:padding="10dp"/>
+       </LinearLayout>
+
+
+   </android.support.v4.widget.NestedScrollView>
+
+</LinearLayout>

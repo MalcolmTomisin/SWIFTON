@@ -1,10 +1,16 @@
 package com.swifton.swifton;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -40,6 +46,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
+
+        LayoutInflater layoutInflater = (LayoutInflater)getBaseContext().getSystemService(LAYOUT_INFLATER_SERVICE);
+        View loginView = layoutInflater.inflate(R.layout.designer_login_layout, null);
+        //final PopupWindow popupWindow = new PopupWindow(loginView, LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+
+        GradientDrawable drawable = (GradientDrawable) loginView.getResources().getDrawable(R.drawable.popup_shape);
+        drawable.setColor(Color.parseColor("#d8450078"));
+        loginView.setBackground(drawable);
+        final PopupWindow popupWindow = new PopupWindow(loginView, ActionBar.LayoutParams.FILL_PARENT, ActionBar.LayoutParams.WRAP_CONTENT, true);
+
         switch (view.getId()) {
             case R.id.buttonToolbarFab:
                 Intent ToolbarAndFabIntent = new Intent(this, ToolbarAndFab.class);
@@ -76,10 +92,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.designerLogin:
-                Intent designerIntent = new Intent(MainActivity.this, DesignersDashboardActivity.class);
-                startActivity(designerIntent);
-                overridePendingTransition(R.anim.lefttrslate, R.anim.righttranslate);
-                finish();
+//                Intent designerIntent = new Intent(MainActivity.this, DesignersDashboardActivity.class);
+//                startActivity(designerIntent);
+//                overridePendingTransition(R.anim.righttranslate, R.anim.lefttrslate);
+//                finish();
+
+                popupWindow.showAtLocation(view,Gravity.CENTER, 0, 0);
                 break;
 
             default:
