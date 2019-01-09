@@ -3,8 +3,10 @@ package com.swifton.swifton;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.Settings;
+import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -12,37 +14,25 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.swifton.swifton.Helpers.AppSingleton;
-import com.swifton.swifton.Helpers.NetCheck;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.json.simple.parser.JSONParser;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class SignupActivity extends AppCompatActivity {
-    TextView loginLabel, deviceUDID;
+    TextView loginLabel;
     Button cmd_signupbtn;
-    EditText txtFullName,txtSignupEmail,txtSignupPassword;
+    EditText txtFullName,txtSignupEmail,txtSignupPassword, txtsignupconfirmpass;
     ProgressDialog progressDialog;
-    String UDIDS;
+    private static String TAG = "Update" ;
 
-    protected String enteredUsername;
 
-    String URL= "http:10.11.32.26/swiftonbe/app/signup.php";
-    private static final String TAG = "RegisterActivity";
 
-    private static final String TAG_SUCCESS = "success";
+    private FirebaseAuth mAuth;
 
-    JSONParser jsonParser=new JSONParser();
 
-    int i=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,18 +40,10 @@ public class SignupActivity extends AppCompatActivity {
 
         loginLabel=findViewById(R.id.loginlabel);
         cmd_signupbtn = findViewById(R.id.signupbtn);
-        //txtFullName = findViewById(R.id.txtsignupname);
         txtSignupEmail = findViewById(R.id.txtsignupemail);
         txtSignupPassword = findViewById(R.id.txtsignuppswrd);
-        deviceUDID = findViewById(R.id.udid);
+        txtsignupconfirmpass = findViewById(R.id.txtsignupconfirmpass);
 
-        // Progress dialog
-        progressDialog = new ProgressDialog(SignupActivity.this);
-        progressDialog.setCancelable(false);
-
-        UDIDS = Settings.Secure.getString(getApplicationContext().getContentResolver(), Settings.Secure.ANDROID_ID);
-
-        deviceUDID.setText(UDIDS);
 
         loginLabel.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -72,105 +54,108 @@ public class SignupActivity extends AppCompatActivity {
             }
         });
 
-        cmd_signupbtn.setOnClickListener(new View.OnClickListener(){
+        cmd_signupbtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
-                final String email = txtSignupEmail.getText().toString().trim();
-                final String password = txtSignupPassword.getText().toString().trim();
-                final String userdevice = deviceUDID.getText().toString().trim();
-                final String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
-                if(NetCheck.isConnectedToInternet(getBaseContext())){
-                    if (email.isEmpty() || password.isEmpty() || userdevice.isEmpty()) {
-                        Toast.makeText(getApplicationContext(), "All fields are required", Toast.LENGTH_LONG).show();
-                    } else if (!email.matches(emailPattern)) {
-                        Toast.makeText(getApplicationContext(), "Invalid email address", Toast.LENGTH_SHORT).show();
-                    } else if (email.matches(emailPattern) && password.length() >= 6) {
-                        signupUsers(email, password, userdevice);
-                        Toast.makeText(getApplicationContext(), "hello checking signup error "+ userdevice, Toast.LENGTH_LONG).show();
-                    } else {
-                        Toast.makeText(getApplicationContext(), "Could not signup...", Toast.LENGTH_LONG).show();
-                    }
-                }else{
-                    Toast.makeText(SignupActivity.this, "There is no internet connection!", Toast.LENGTH_SHORT).show();
-                    return;
-                }
+            public void onClick(View v) {
+                attemptSignUp();
+            }
+        });
 
+        mAuth = FirebaseAuth.getInstance();
+    }
+
+    private void attemptSignUp(){
+        //reset errors
+        txtSignupEmail.setError(null);
+        txtSignupPassword.setError(null);
+        txtsignupconfirmpass.setError(null);
+
+        String email = txtSignupEmail.getText().toString().trim();
+        String password = txtSignupPassword.getText().toString().trim();
+
+        boolean cancel = false;
+        View focusView = null;
+
+        if (!TextUtils.isEmpty(password) && !isPasswordValid(password)) {
+            txtSignupPassword.setError(getString(R.string.password_error));
+            focusView = txtSignupPassword = txtsignupconfirmpass;
+            cancel = true;
+        } else if (!isEmailValid(email)) {
+            txtSignupEmail.setError(getString(R.string.invalid_email_error));
+            focusView = txtSignupEmail;
+            cancel = true;
+        }
+
+        if (cancel) {
+            focusView.requestFocus();
+        } else {
+            createFirebaseUser();
+        }
+
+    }
+
+    //todo
+
+    private void createFirebaseUser() {
+        String email = txtSignupEmail.getText().toString().trim();
+        String password = txtSignupPassword.getText().toString().trim();
+
+        mAuth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        Log.d(TAG, "createUserWithEmail:success");
+                        FirebaseUser user = mAuth.getCurrentUser();
+
+                        if (!task.isSuccessful()){
+                            Log.d("SwiftOn", "user creation failed");
+                            showErrorDialog("Registration attempt failed");
+                        } else {
+                            Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
+                            finish();
+                            startActivity(intent);
+                        }
+                    }
+                });
+    }
+
+    private boolean isEmailValid (String email){
+        final String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+        return email.matches(emailPattern);
+    }
+
+    private boolean isPasswordValid (String password){
+        String confirmPassword = txtsignupconfirmpass.getText().toString().trim();
+        return confirmPassword.equals(password) && password.length() > 6;
+    }
+
+    private void createUser (){
+        String email = txtSignupEmail.getText().toString();
+        String password = txtSignupPassword.getText().toString();
+        mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                Toast.makeText(getApplicationContext(), "Create User Completed" + task.isSuccessful(),Toast.LENGTH_SHORT ).show();
+
+                if (!task.isSuccessful()){
+                   showErrorDialog("Sign up attempt failed");
+                }
             }
         });
     }
 
     private void signupUsers(final String email, final String password, final String userdevice) {
-        //Tag used to cancel the request
-        String cancel_req_tag = "signup";
-        progressDialog.setMessage("Registering you...");
-        showDialog();
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
 
-                hideDialog();
-                Log.i("tagconvertstr", "["+response+"]");
-                try {
-                    JSONObject jObj = new JSONObject(response);
-                    Integer result = jObj.getInt("result");
-
-                    if(result == 1){
-                        String message = "Your account has been created successfuly!";//jObj.getString("message");
-                        //String user = jObj.getString("email");
-                        Toast.makeText(getApplicationContext(), "Hi " +message, Toast.LENGTH_LONG).show();
-                        Intent mainIntent = new Intent(SignupActivity.this, MainActivity.class);
-                        startActivity(mainIntent);
-                        finish();
-                    }else if(result == 2){
-                        String message = "This user already exists!";//jObj.getString("message");
-                        //String user = jObj.getString("email");
-                        Toast.makeText(getApplicationContext(), "Hi " +message, Toast.LENGTH_LONG).show();
-                    }else{
-                        //String errorMsg = jObj.getString("error");
-                        //Toast.makeText(getApplicationContext(), name+ " "+ email, Toast.LENGTH_LONG).show();
-                        Toast.makeText(getApplicationContext(), "Sorry registration failed! ", Toast.LENGTH_LONG).show();
-                    }
-                } catch (final JSONException e){
-                    e.printStackTrace();
-                    runOnUiThread(new Runnable() {
-                        public void run() {
-                            Toast.makeText(SignupActivity.this, e.toString(), Toast.LENGTH_LONG).show();
-                        }
-                    });
-                }
-
-            }
-        }, new Response.ErrorListener() {
-
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Log.e(TAG, "Registration Error: " + error.getMessage());
-                Toast.makeText(getApplicationContext(),"Sorry registration failed! 2"+error.getMessage(), Toast.LENGTH_LONG).show();
-                hideDialog();
-            }
-        }) {
-            @Override
-            protected Map<String, String> getParams() {
-                // Posting params to register url
-                Map<String, String> params = new HashMap<String, String>();
-                //params.put("name", name);
-                params.put("email", email);
-                params.put("password", password);
-                params.put("deviceuid", UDIDS);
-                //params.put("phone", phone);
-                return params;
-            }
-        };
-        // Adding request to request queue
-        AppSingleton.getInstance(getApplicationContext()).addToRequestQueue(stringRequest, cancel_req_tag);
    }
 
-    private void showDialog(){
-        if (!progressDialog.isShowing())
-            progressDialog.show();
-    }
-    private void hideDialog() {
-        if (progressDialog.isShowing())
-            progressDialog.dismiss();
-    }
+   private void showErrorDialog(String message){
+        new AlertDialog.Builder(this)
+                .setTitle("Error Signing up!!")
+                .setMessage(message)
+                .setPositiveButton(android.R.string.ok, null)
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .show();
+   }
+
+
 }

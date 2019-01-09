@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "842058866469",
+    "firebase_url": "https://swifton-86277.firebaseio.com",
+    "project_id": "swifton-86277",
+    "storage_bucket": "swifton-86277.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:842058866469:android:b89bdd02d17b1536",
+        "android_client_info": {
+          "package_name": "com.swifton.swifton"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "842058866469-1di873m95618101dn5tsdfd87ba87177.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8DJjBqMiL8d25MKzrEpDEg557GqmHSuw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -59,55 +59,62 @@
                 android:id="@+id/loginlabel1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="30sp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/roboto_light"
+                android:padding="4dp"
                 android:text="@string/signup"
                 android:textColor="@color/colorGray"
-                android:layout_centerHorizontal="true"
-                android:fontFamily="@font/roboto_light"
-                android:padding="8dp"
-                />
+                android:textSize="26sp" />
 
 
             <EditText
                 android:id="@+id/txtsignupemail"
                 android:layout_width="350dp"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:hint="@string/email"
-                android:textColorHint="#222"
-                android:textColor="#222"
                 android:layout_below="@+id/loginlabel1"
-                android:layout_marginTop="30dp"
-                android:textSize="20sp"
-                android:inputType="textEmailAddress"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="18dp"
                 android:drawableEnd="@drawable/ic_email"
-                android:padding="10dp"/>
+                android:hint="@string/email"
+                android:inputType="textEmailAddress"
+                android:padding="10dp"
+                android:textColor="#222"
+                android:textColorHint="@color/colorGray"
+                android:textSize="20sp" />
+
             <EditText
                 android:id="@+id/txtsignuppswrd"
                 android:layout_width="350dp"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:hint="@string/password"
-                android:textColorHint="#222"
-                android:textColor="#222"
-                android:textSize="20sp"
                 android:layout_below="@id/txtsignupemail"
-                android:layout_marginTop="50dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"
                 android:layout_marginBottom="30dp"
-                android:inputType="textPassword"
                 android:drawableEnd="@drawable/ic_key"
-                android:padding="10dp"/>
-            <TextView
-                android:id="@+id/udid"
-                android:layout_width="wrap_content"
+                android:hint="@string/password"
+                android:inputType="textPassword"
+                android:padding="8dp"
+                android:textColor="#222"
+                android:textColorHint="@color/colorGray"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/txtsignupconfirmpass"
+                android:layout_width="350dp"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/txtsignuppswrd"
-                android:layout_alignParentEnd="true"
-                android:textColor="#000"
-                android:hint="@string/user_device_id"
-                android:visibility="invisible"
-                android:textSize="12sp"
-                android:padding="5dp"/>
+                android:layout_below="@id/txtsignupemail"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="70dp"
+                android:layout_marginBottom="30dp"
+                android:drawableEnd="@drawable/ic_key"
+                android:hint="@string/confirm_password"
+                android:inputType="textPassword"
+                android:padding="8dp"
+                android:textColor="#222"
+                android:textColorHint="@color/colorGray"
+                android:textSize="20sp" />
         </RelativeLayout>
 
 
@@ -116,19 +123,19 @@
     <Button
         android:id="@+id/signupbtn"
         android:layout_width="match_parent"
-        android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
-        android:layout_marginTop="-25dp"
-        android:layout_marginEnd="100dp"
-        android:layout_marginStart="100dp"
-        android:padding="10dp"
-        android:text="@string/signup"
         android:layout_below="@+id/cardview1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="-30dp"
+        android:layout_marginEnd="100dp"
         android:background="@drawable/signlogbuttons"
-        android:fontFamily="@font/roboto_light"
         android:drawableEnd="@drawable/ic_arrow_forward"
         android:elevation="10dp"
-        android:textSize="20sp"/>
+        android:fontFamily="@font/roboto_light"
+        android:padding="10dp"
+        android:text="@string/signup"
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/loginlabel"

@@ -36,4 +36,8 @@
     <string name="my_design_collection">My Design Collection</string>
     <string name="dashboard">Dashboard</string>
     <string name="my_dealers">My Dealers</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="password_error">Invalid Password</string>
+    <string name="field_required_error">Field Required</string>
+    <string name="invalid_email_error">Invalid Email</string>
 </resources>
