@@ -19,20 +19,23 @@ import android.widget.Filter;
 import android.widget.Filterable;
 
 import com.squareup.picasso.Picasso;
+import com.swifton.swifton.Filters.TopDesignsFilter;
 import com.swifton.swifton.Helpers.ItemClickListener;
+import com.swifton.swifton.Holders.BrandedDesignsHolder;
 import com.swifton.swifton.Models.NativeItems;
 import com.swifton.swifton.R;
 
 import java.util.List;
 
-public class NativesAdapter extends RecyclerView.Adapter implements Filterable {
+public class TopDesignsAdapter extends RecyclerView.Adapter implements Filterable {
     Bundle Title, Description, Backdrop;
-    List<NativeItems> nativeItems, filterList;
+    public List<NativeItems> nativeItems;
+    List<NativeItems> filterList;
     Context mContext;
-    NativeFilter nativeFilter;
+    TopDesignsFilter nativeFilter;
     int Desc;
 
-    public NativesAdapter(List<NativeItems> nativeitems, Context context){
+    public TopDesignsAdapter(List<NativeItems> nativeitems, Context context){
         this.nativeItems = nativeitems;
         this.mContext = context;
         filterList = nativeitems;
@@ -40,17 +43,17 @@ public class NativesAdapter extends RecyclerView.Adapter implements Filterable {
 
     @NonNull
     @Override
-    public NativeViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public BrandedDesignsHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
         LayoutInflater inflater = LayoutInflater.from(mContext);
         View row=inflater.inflate(R.layout.custom_row_demo, parent, false);
-        return new NativeViewHolder(row);
+        return new BrandedDesignsHolder(row);
     }
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         NativeItems currentDemoItem = nativeItems.get(position);
-        NativeViewHolder nativeviewHolder = (NativeViewHolder) holder;
+        BrandedDesignsHolder nativeviewHolder = (BrandedDesignsHolder) holder;
         nativeviewHolder.Title.setText(currentDemoItem.title);
         nativeviewHolder.Description.setText(currentDemoItem.Description);
         DisplayMetrics displayMetrics = new DisplayMetrics();
@@ -127,7 +130,7 @@ public class NativesAdapter extends RecyclerView.Adapter implements Filterable {
     public Filter getFilter() {
 
         if(nativeFilter == null){
-            nativeFilter = new NativeFilter(this, filterList);
+            nativeFilter = new TopDesignsFilter(this, filterList);
         }
         return nativeFilter;
     }

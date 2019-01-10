@@ -76,17 +76,17 @@ public class SignupActivity extends AppCompatActivity {
         boolean cancel = false;
         View focusView = null;
 
-        if (!TextUtils.isEmpty(password) && !isPasswordValid(password)) {
+        if (!TextUtils.isEmpty(password) || !isPasswordValid(password)) {
             txtSignupPassword.setError(getString(R.string.password_error));
             focusView = txtSignupPassword = txtsignupconfirmpass;
             cancel = true;
+            focusView.requestFocus();
+//            txtSignupPassword.getText().clear();
+//            txtsignupconfirmpass.getText().clear();
         } else if (!isEmailValid(email)) {
             txtSignupEmail.setError(getString(R.string.invalid_email_error));
             focusView = txtSignupEmail;
-            cancel = true;
-        }
-
-        if (cancel) {
+          //  cancel = true;
             focusView.requestFocus();
         } else {
             createFirebaseUser();
@@ -144,9 +144,7 @@ public class SignupActivity extends AppCompatActivity {
         });
     }
 
-    private void signupUsers(final String email, final String password, final String userdevice) {
 
-   }
 
    private void showErrorDialog(String message){
         new AlertDialog.Builder(this)

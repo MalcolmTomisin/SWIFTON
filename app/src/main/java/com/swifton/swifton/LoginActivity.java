@@ -43,14 +43,10 @@ public class LoginActivity extends AppCompatActivity {
         txtloginEmail = findViewById(R.id.txtloginemail);
         txtloginPassword = findViewById(R.id.txtloginpswrd);
 
-        txtloginPassword.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+        cmd_LoginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                if (actionId == R.integer.login || actionId == EditorInfo.IME_NULL){
-                    logUserIn();
-                    return true;
-                }
-                return false;
+            public void onClick(View v) {
+                logUserIn();
             }
         });
 
@@ -65,6 +61,12 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         mAuth = FirebaseAuth.getInstance();
+
+    }
+
+    public void signInExistingUser(View v)   {
+        // TODO: Call attemptLogin() here
+        logUserIn();
 
     }
 

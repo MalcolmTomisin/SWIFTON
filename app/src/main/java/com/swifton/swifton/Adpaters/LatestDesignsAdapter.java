@@ -22,9 +22,11 @@ import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 import com.swifton.swifton.BuyActivity;
+import com.swifton.swifton.Filters.LatestDesignsFilter;
 import com.swifton.swifton.Helpers.ItemClickListener;
+import com.swifton.swifton.Holders.LatestDesignsHolder;
 import com.swifton.swifton.JustTest;
-import com.swifton.swifton.Models.AllDesignItems;
+import com.swifton.swifton.Models.LatestDesignsItems;
 import com.swifton.swifton.R;
 import com.swifton.swifton.ToolBars.ToolbarAndFab;
 
@@ -34,17 +36,18 @@ import java.util.List;
  * Created by amardeep on 11/7/2017.
  */
 
-public class DemoAdapter extends RecyclerView.Adapter implements Filterable {
+public class LatestDesignsAdapter extends RecyclerView.Adapter implements Filterable {
     Bundle Title, Description, Backdrop;
 
-    List<AllDesignItems> allDesignItems, filterList;
+    public List<LatestDesignsItems> latestDesignsItems;
+    List<LatestDesignsItems> filterList;
     Context context;
-    ItemFilter itemsFilter;
+    LatestDesignsFilter itemsFilter;
     int Desc;
     private ImageView loveBtn;
 
-    public DemoAdapter(List<AllDesignItems> DesignItems, Context context) {
-        this.allDesignItems = DesignItems;
+    public LatestDesignsAdapter(List<LatestDesignsItems> DesignItems, Context context) {
+        this.latestDesignsItems = DesignItems;
         this.context = context;
         this.filterList = DesignItems;
     }
@@ -55,26 +58,26 @@ public class DemoAdapter extends RecyclerView.Adapter implements Filterable {
         View view = inflater.inflate(R.layout.custom_row_demo, parent, false);
 
 
-       AllDesignHolder allholder = new AllDesignHolder(view);
+       LatestDesignsHolder latestdesignsholder = new LatestDesignsHolder(view);
 
-        loveBtn = allholder.loveBtn;
-        return  allholder;
+        loveBtn = latestdesignsholder.loveBtn;
+        return  latestdesignsholder;
     }
 
     @Override
     public void onBindViewHolder(final RecyclerView.ViewHolder holder, int position) {
-        final AllDesignItems currentAllDesignItems = allDesignItems.get(position);
-        AllDesignHolder designHolder = (AllDesignHolder) holder;
-        designHolder.Title.setText(currentAllDesignItems.title);
-        designHolder.Description.setText(currentAllDesignItems.Description);
+        final LatestDesignsItems currentLatestDesignsItems = latestDesignsItems.get(position);
+        LatestDesignsHolder designHolder = (LatestDesignsHolder) holder;
+        designHolder.Title.setText(currentLatestDesignsItems.title);
+        designHolder.Description.setText(currentLatestDesignsItems.Description);
         DisplayMetrics displayMetrics = new DisplayMetrics();
         ((Activity) context).getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-        Picasso.with(context).load(currentAllDesignItems.imageUrl).placeholder(R.drawable.ic_image_black_24dp).centerCrop().resize(displayMetrics.widthPixels, displayMetrics.heightPixels / 3).into(designHolder.Thumbnail);
+        Picasso.with(context).load(currentLatestDesignsItems.imageUrl).placeholder(R.drawable.ic_image_black_24dp).centerCrop().resize(displayMetrics.widthPixels, displayMetrics.heightPixels / 3).into(designHolder.Thumbnail);
 
         designHolder.setItemClickListener(new ItemClickListener() {
             @Override
             public void onItemClick(View v, int desc) {
-                Snackbar.make(v, allDesignItems.get(desc).title, Snackbar.LENGTH_SHORT).show();
+                Snackbar.make(v, latestDesignsItems.get(desc).title, Snackbar.LENGTH_SHORT).show();
                 confirmChoice(v, desc);
             }
         });
@@ -104,7 +107,7 @@ public class DemoAdapter extends RecyclerView.Adapter implements Filterable {
         } else {
             builder = new AlertDialog.Builder(context);
         }
-        builder.setTitle("What do I do now " + allDesignItems.get(desc).title + " ?" );
+        builder.setTitle("What do I do now " + latestDesignsItems.get(desc).title + " ?" );
         builder.setItems(options,new DialogInterface.OnClickListener() {
 
             @Override
@@ -114,9 +117,9 @@ public class DemoAdapter extends RecyclerView.Adapter implements Filterable {
                 {
                     Intent DetailsIntent = new Intent(context, ToolbarAndFab.class);
                     Title= new Bundle(); Description =  new Bundle(); Backdrop = new Bundle();
-                    Title.putString("title", allDesignItems.get(desc).title);
-                    Description.putString("venue", allDesignItems.get(desc).Description);
-                    Backdrop.putString("date", allDesignItems.get(desc).imageUrl);
+                    Title.putString("title", latestDesignsItems.get(desc).title);
+                    Description.putString("venue", latestDesignsItems.get(desc).Description);
+                    Backdrop.putString("date", latestDesignsItems.get(desc).imageUrl);
                     //Hbanner.putInt("banner", halls.get(desc).getBanner());
 
                         DetailsIntent.putExtras(Title);
@@ -132,9 +135,9 @@ public class DemoAdapter extends RecyclerView.Adapter implements Filterable {
                 }else if (options[which].equals("Buy")) {
                     final Intent buyIntent = new Intent(context, BuyActivity.class);
                     Title= new Bundle(); Description =  new Bundle(); Backdrop = new Bundle();
-                    Title.putString("title", allDesignItems.get(desc).title);
-                    Description.putString("venue", allDesignItems.get(desc).Description);
-                    Backdrop.putString("date", allDesignItems.get(desc).imageUrl);
+                    Title.putString("title", latestDesignsItems.get(desc).title);
+                    Description.putString("venue", latestDesignsItems.get(desc).Description);
+                    Backdrop.putString("date", latestDesignsItems.get(desc).imageUrl);
                     //Hbanner.putInt("banner", halls.get(desc).getBanner());
 
                     buyIntent.putExtras(Title);
@@ -149,8 +152,8 @@ public class DemoAdapter extends RecyclerView.Adapter implements Filterable {
                 } else if (options[which].equals("Visit Designer Website")) {
 
                     Bundle url = new Bundle();
-                    url.putString("URL", allDesignItems.get(desc).imageUrl);
-                    String site = allDesignItems.get(desc).imageUrl;
+                    url.putString("URL", latestDesignsItems.get(desc).imageUrl);
+                    String site = latestDesignsItems.get(desc).imageUrl;
                     final Intent weburlIntent = new Intent(Intent.ACTION_VIEW).setData(Uri.parse(site));
                     weburlIntent.putExtras(url);
                     context.startActivity(weburlIntent);
@@ -167,7 +170,7 @@ public class DemoAdapter extends RecyclerView.Adapter implements Filterable {
 
     @Override
     public int getItemCount() {
-        return allDesignItems.size();
+        return latestDesignsItems.size();
     }
 
     //RETURN FILTER BJECT
@@ -175,7 +178,7 @@ public class DemoAdapter extends RecyclerView.Adapter implements Filterable {
     public Filter getFilter() {
 
         if(itemsFilter == null){
-            itemsFilter = new ItemFilter(filterList, this);
+            itemsFilter = new LatestDesignsFilter(filterList, this);
         }
         return itemsFilter;
     }

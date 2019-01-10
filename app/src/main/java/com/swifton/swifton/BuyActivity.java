@@ -13,12 +13,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.swifton.swifton.Adpaters.DemoAdapter;
+import com.swifton.swifton.Adpaters.LatestDesignsAdapter;
 
 import java.util.ArrayList;
 
 public class BuyActivity extends AppCompatActivity {
-    ArrayList<DemoAdapter> getList;
+    ArrayList<LatestDesignsAdapter> getList;
     ImageView liked;
     Button btnBagain, btnBuy, btnAddToCart;
     FloatingActionButton cartNotify;
@@ -41,7 +41,7 @@ public class BuyActivity extends AppCompatActivity {
         txtTitle =findViewById(R.id.buyTitle);
         txtDescription = findViewById(R.id.buyDesc);
 
-        getList = new ArrayList<DemoAdapter>();
+        getList = new ArrayList<LatestDesignsAdapter>();
         //txtTitle.setText();
 
         btnBagain.setOnClickListener(new View.OnClickListener() {

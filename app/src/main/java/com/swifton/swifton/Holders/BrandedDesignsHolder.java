@@ -1,4 +1,4 @@
-package com.swifton.swifton.Adpaters;
+package com.swifton.swifton.Holders;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -8,13 +8,13 @@ import android.widget.TextView;
 import com.swifton.swifton.Helpers.ItemClickListener;
 import com.swifton.swifton.R;
 
-public class NativeViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+public class BrandedDesignsHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
     ItemClickListener itemClickListener;
-    ImageView Thumbnail;
-    TextView Title, Description;
+   public ImageView Thumbnail;
+   public TextView Title, Description;
 
-    public NativeViewHolder(View itemView){
+    public BrandedDesignsHolder(View itemView){
         super(itemView);
 
         Thumbnail = itemView.findViewById(R.id.imageViewThumbnail);

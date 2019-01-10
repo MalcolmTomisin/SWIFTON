@@ -44,7 +44,7 @@ public class UserDashboardActivity extends AppCompatActivity implements Navigati
 //        mdrawaerLayout.addDrawerListener(mdrawertoggle);
 //        mdrawertoggle.syncState();
 
-        mActivityTitle = "josat57@gmail.com";
+        mActivityTitle = "Dashboard";
 
         NavigationView navigationView =  findViewById(R.id.navView);
         navigationView.setNavigationItemSelectedListener(this);
@@ -76,7 +76,7 @@ public class UserDashboardActivity extends AppCompatActivity implements Navigati
             public void onDrawerOpened(View drawerView) {
                 super.onDrawerOpened(drawerView);
                 if( getSupportActionBar() !=null ) {
-                    getSupportActionBar().setTitle("Navigation!");
+                    getSupportActionBar().setTitle(mActivityTitle);
                     invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
                 }else{
                     getSupportActionBar().setTitle("Changed");
@@ -88,6 +88,7 @@ public class UserDashboardActivity extends AppCompatActivity implements Navigati
                 super.onDrawerClosed(view);
                 if( getSupportActionBar() !=null ) {
                     getSupportActionBar().setTitle(mActivityTitle);
+                    getSupportActionBar().setIcon(R.drawable.ic_dashboard);
                     invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
                 }else{
                     getSupportActionBar().setTitle("Changed");

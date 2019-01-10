@@ -7,7 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.swifton.swifton.Adpaters.OrdersAdapter;
+import com.swifton.swifton.Adpaters.BrandedDesignsAdapter;
 import com.swifton.swifton.Models.OrderItems;
 import com.swifton.swifton.R;
 
@@ -18,7 +18,7 @@ import java.util.List;
  */
 public class DesignersFragment extends Fragment {
 
-    OrdersAdapter orderadapter;
+    BrandedDesignsAdapter orderadapter;
     List<OrderItems> data_list;
 
     public static MyOrdersFragment newInstance() {

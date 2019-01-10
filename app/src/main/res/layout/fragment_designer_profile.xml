@@ -37,6 +37,15 @@
             android:padding="10dp"
             android:hint="Premium"
             android:layout_below="@+id/profileLogo"/>
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/editProfileFAB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fabSize="normal"
+            android:src="@drawable/ic_edit"
+            android:layout_margin="16dp"
+            android:layout_alignParentEnd="true"
+            app:backgroundTint="@color/colorPrimaryDark"/>
     </RelativeLayout>
 
     <android.support.v4.widget.NestedScrollView
@@ -171,15 +180,5 @@
 
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
-
-   <android.support.design.widget.FloatingActionButton
-       android:id="@+id/editProfile"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       app:fabSize="normal"
-       android:src="@drawable/ic_add_white"
-       android:layout_margin="16dp"
-       android:layout_gravity="bottom|end"
-       app:backgroundTint="@color/colorPrimaryDark"/>
 
 </LinearLayout>

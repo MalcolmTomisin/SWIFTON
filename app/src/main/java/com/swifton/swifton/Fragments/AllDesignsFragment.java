@@ -11,9 +11,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.mancj.materialsearchbar.MaterialSearchBar;
-import com.swifton.swifton.Adpaters.DemoAdapter;
+import com.swifton.swifton.Adpaters.LatestDesignsAdapter;
 import com.swifton.swifton.Helpers.Space;
-import com.swifton.swifton.Models.AllDesignItems;
+import com.swifton.swifton.Models.LatestDesignsItems;
 import com.swifton.swifton.R;
 
 import java.util.ArrayList;
@@ -24,8 +24,8 @@ import java.util.List;
  */
 public class AllDesignsFragment extends Fragment {
 
-    private List<AllDesignItems> data_list;
-    private DemoAdapter adapter;
+    private List<LatestDesignsItems> data_list;
+    private LatestDesignsAdapter adapter;
 
     public static AllDesignsFragment newInstance() {
         AllDesignsFragment fragment = new AllDesignsFragment();
@@ -45,16 +45,16 @@ public class AllDesignsFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_all_designs, container, false);
 
-        //data_list = new ArrayList<AllDesignItems>(data_list);
+        //data_list = new ArrayList<LatestDesignsItems>(data_list);
 
         MaterialSearchBar designsSearch = view.findViewById(R.id.search_allDesigns);
         RecyclerView recyclerViewDemo = view.findViewById(R.id.recyclerViewAllDesigns);
         recyclerViewDemo.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerViewDemo.addItemDecoration(new Space(20, 1));
-        recyclerViewDemo.setAdapter(new DemoAdapter(feedItems(), getContext()));
+        recyclerViewDemo.setAdapter(new LatestDesignsAdapter(feedItems(), getContext()));
 
 
-        adapter = new DemoAdapter(feedItems(),getContext());
+        adapter = new LatestDesignsAdapter(feedItems(),getContext());
 
         //load_data_from_server(0);
 
@@ -87,18 +87,18 @@ public class AllDesignsFragment extends Fragment {
 
         return view;
     }
-     private List<AllDesignItems> feedItems() {
+     private List<LatestDesignsItems> feedItems() {
         String[] Titles = {"Taylor Swift - Look What You Made Me", "Bebe Rexha - Meant to Be", "Andra & Mara - Sweet Dreams", "Sam Smith - Too Good At Goodbyes "};
         String[] Description = {"By TaylorSwiftVEVO ", "By Bebe Rexha", "BySamSmithWorldVEVO", "SamSmithWorldVEVO "};
         String[] ImageUrls = {"https://cdn.pixabay.com/photo/2016/01/14/06/09/guitar-1139397_640.jpg", "https://cdn.pixabay.com/photo/2017/10/30/10/35/dance-2902034_640.jpg", "https://cdn.pixabay.com/photo/2017/09/17/11/10/luck-2758147_640.jpg", "https://cdn.pixabay.com/photo/2016/12/17/16/59/guitar-1913836_640.jpg"};
-        List<AllDesignItems> allDesignItems = new ArrayList<>();
+        List<LatestDesignsItems> latestDesignsItems = new ArrayList<>();
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < Titles.length; j++) {
-                AllDesignItems designItems = new AllDesignItems(Titles[j], Description[j], ImageUrls[j]);
-                allDesignItems.add(designItems);
+                LatestDesignsItems designItems = new LatestDesignsItems(Titles[j], Description[j], ImageUrls[j]);
+                latestDesignsItems.add(designItems);
             }
         }
-        return allDesignItems;
+        return latestDesignsItems;
     }
 //   static private void load_data_from_server(String id) {
 //
@@ -120,7 +120,7 @@ public class AllDesignsFragment extends Fragment {
 //                        JSONObject object = array.getJSONObject(i);
 //
 //                        //Events data = new Events(
-//                        AllDesignItems data = new AllDesignItems(
+//                        LatestDesignsItems data = new LatestDesignsItems(
 //                                object.getString("title"),
 //                                object.getString("cescription"),
 //                                object.getString("imageurl"));

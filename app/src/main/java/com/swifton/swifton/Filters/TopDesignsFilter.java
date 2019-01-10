@@ -1,18 +1,19 @@
-package com.swifton.swifton.Adpaters;
+package com.swifton.swifton.Filters;
 
 import android.widget.Filter;
 
+import com.swifton.swifton.Adpaters.TopDesignsAdapter;
 import com.swifton.swifton.Models.NativeItems;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class NativeFilter extends Filter {
+public class TopDesignsFilter extends Filter {
 
-    NativesAdapter nativeAdapter;
+    TopDesignsAdapter nativeAdapter;
     List<NativeItems> nativeList;
 
-    public NativeFilter(NativesAdapter nativeadapter, List<NativeItems> nativeList){
+    public TopDesignsFilter(TopDesignsAdapter nativeadapter, List<NativeItems> nativeList){
         this.nativeAdapter = nativeadapter;
         this.nativeList = nativeList;
     }

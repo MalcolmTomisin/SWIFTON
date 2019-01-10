@@ -3,6 +3,8 @@
     package="com.swifton.swifton">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -19,6 +21,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
 
             </intent-filter>
+
             <intent-filter>
                 <data
                     android:host="www.swifton.com"
@@ -45,7 +48,8 @@
         <activity android:name=".UserDashboardActivity" />
         <activity android:name=".JustTest" />
         <activity android:name=".BuyActivity" />
-        <activity android:name=".DesignersDashboardActivity"></activity>
+        <activity android:name=".DesignersDashboardActivity" />
+        <activity android:name=".DesignersProfileActivity"></activity>
     </application>
 
 </manifest>

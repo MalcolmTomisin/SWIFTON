@@ -16,81 +16,79 @@ import android.widget.Filter;
 import android.widget.Filterable;
 
 import com.squareup.picasso.Picasso;
-import com.swifton.swifton.Filters.TopDesginersFilter;
+import com.swifton.swifton.Filters.LatestDesignersFilter;
 import com.swifton.swifton.Helpers.ItemClickListener;
-import com.swifton.swifton.Holders.TopDesignersHolders;
-import com.swifton.swifton.Models.TopDesigners;
+import com.swifton.swifton.Holders.LatestDesignersHolders;
+import com.swifton.swifton.Models.LatestDesigners;
 import com.swifton.swifton.R;
 import com.swifton.swifton.ToolBars.ToolbarAndFab;
 
 import java.util.ArrayList;
 
-public class TopDesignersAdapter extends RecyclerView.Adapter<TopDesignersHolders>implements Filterable {
+public class LatestDesignersAdapter extends RecyclerView.Adapter<LatestDesignersHolders>implements Filterable {
 
     Context mContext;
-   public ArrayList<TopDesigners> topDesigners, filterList;
-    TopDesginersFilter filter;
+    public ArrayList<LatestDesigners> latestDesigners, filterList;
+    LatestDesignersFilter filter;
 
-    public TopDesignersAdapter(ArrayList<TopDesigners> topdesigners, Context context){
+    public LatestDesignersAdapter(ArrayList<LatestDesigners> latestdesigners, Context context) {
         this.mContext = context;
-        this.topDesigners= topdesigners;
-        this.filterList = topdesigners;
+        this.latestDesigners = latestdesigners;
+        this.filterList = latestdesigners;
     }
 
     @Override
-    public TopDesignersHolders onCreateViewHolder(ViewGroup parent, int viewType) {
+    public LatestDesignersHolders onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.designers_content_layout, null);
 
-        TopDesignersHolders holder = new TopDesignersHolders(v);
+        LatestDesignersHolders holder = new LatestDesignersHolders(v);
 
         return holder;
     }
 
     @Override
-    public void onBindViewHolder(TopDesignersHolders holder, int position) {
-        TopDesigners topdesignersItem = topDesigners.get(position);
-        //holder.id.setText(topDesigners.get(position).getId());
-        holder.companyname.setText(topDesigners.get(position).getCompanyname());
+    public void onBindViewHolder(LatestDesignersHolders holder, int position) {
+        LatestDesigners latestdesignersItem = latestDesigners.get(position);
+        //holder.id.setText(latestDesigners.get(position).getId());
+        holder.companyname.setText(latestDesigners.get(position).getCompanyname());
         //holder.imgLogos.setImageResource(topDesigners.get(position).getLogo());
-        holder.companyaddress.setText(topDesigners.get(position).getCompanyaddress());
-        holder.companycity.setText(topDesigners.get(position).getCompanycity());
-        holder.companystate.setText(topDesigners.get(position).getCompanystate());
-        holder.country.setText(topDesigners.get(position).getCountry());
+        holder.companyaddress.setText(latestDesigners.get(position).getCompanyaddress());
+        holder.companycity.setText(latestDesigners.get(position).getCompanycity());
+        holder.companystate.setText(latestDesigners.get(position).getCompanystate());
+        holder.country.setText(latestDesigners.get(position).getCountry());
         DisplayMetrics displayMetrics = new DisplayMetrics();
         ((Activity) mContext).getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-        Picasso.with(mContext).load(topdesignersItem.getLogo()).placeholder(R.drawable.ic_image_black_24dp).centerCrop().resize(displayMetrics.widthPixels, displayMetrics.heightPixels / 3).into(holder.imgLogos);
+        Picasso.with(mContext).load(latestdesignersItem.getLogo()).placeholder(R.drawable.ic_image_black_24dp).centerCrop().resize(displayMetrics.widthPixels, displayMetrics.heightPixels / 3).into(holder.imgLogos);
 
         //IMPLEMENT CLICKLISTENER
 
         holder.setItemClickListener(new ItemClickListener() {
             @Override
             public void onItemClick(View v, int desc) {
-                Snackbar.make(v, topDesigners.get(desc).getCompanyname(), Snackbar.LENGTH_SHORT).show();
+                Snackbar.make(v, latestDesigners.get(desc).getCompanyname(), Snackbar.LENGTH_SHORT).show();
                 confirmChoice(v, desc);
             }
         });
     }
+
     public void confirmChoice(View v, int desc) {
-        final CharSequence[] options = { "Continue", "Not Sure!" };
+        final CharSequence[] options = {"Continue", "Not Sure!"};
         AlertDialog.Builder builder;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             builder = new AlertDialog.Builder(mContext, android.R.style.Theme_Material_Dialog_Alert);
         } else {
             builder = new AlertDialog.Builder(mContext);
         }
-        builder.setTitle("You selected " + topDesigners.get(desc).getCompanyname() );
-        builder.setItems(options,new DialogInterface.OnClickListener() {
+        builder.setTitle("You selected " + latestDesigners.get(desc).getCompanyname());
+        builder.setItems(options, new DialogInterface.OnClickListener() {
 
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 // TODO Auto-generated method stub
-                if(options[which].equals("Continue"))
-                {
+                if (options[which].equals("Continue")) {
                     Intent roomIntent = new Intent(mContext, ToolbarAndFab.class);
                     mContext.startActivity(roomIntent);
-                }
-                else if(options[which].equals("Not Sure!"))
-                {
+                } else if (options[which].equals("Not Sure!")) {
                     dialog.dismiss();
                 }
 
@@ -102,19 +100,17 @@ public class TopDesignersAdapter extends RecyclerView.Adapter<TopDesignersHolder
 
     @Override
     public int getItemCount() {
-        return topDesigners.size();
+        return latestDesigners.size();
     }
 
     //RETURN FILTER BJECT
     @Override
     public Filter getFilter() {
 
-        if(filter == null){
-            filter = new TopDesginersFilter(filterList, this);
+        if (filter == null) {
+            filter = new LatestDesignersFilter(filterList, this);
         }
         return filter;
     }
-
-
 }
 

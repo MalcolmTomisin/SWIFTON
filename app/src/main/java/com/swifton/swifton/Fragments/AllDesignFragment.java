@@ -9,9 +9,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.swifton.swifton.Adpaters.DemoAdapter;
+import com.swifton.swifton.Adpaters.LatestDesignsAdapter;
 import com.swifton.swifton.Helpers.Space;
-import com.swifton.swifton.Models.AllDesignItems;
+import com.swifton.swifton.Models.LatestDesignsItems;
 import com.swifton.swifton.R;
 
 import java.util.ArrayList;
@@ -45,22 +45,22 @@ public class AllDesignFragment extends Fragment {
         RecyclerView recyclerViewDemo = view.findViewById(R.id.recyclerViewAllDesigns);
         recyclerViewDemo.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerViewDemo.addItemDecoration(new Space(20, 1));
-        recyclerViewDemo.setAdapter(new DemoAdapter(feedItems(), getContext()));
+        recyclerViewDemo.setAdapter(new LatestDesignsAdapter(feedItems(), getContext()));
         return view;
     }
 
-    private List<AllDesignItems> feedItems() {
+    private List<LatestDesignsItems> feedItems() {
         String[] Titles = {"Taylor Swift - Look What You Made Me", "Bebe Rexha - Meant to Be", "Andra & Mara - Sweet Dreams", "Sam Smith - Too Good At Goodbyes "};
         String[] Description = {"By TaylorSwiftVEVO ", "By Bebe Rexha", "BySamSmithWorldVEVO", "SamSmithWorldVEVO "};
         String[] ImageUrls = {"https://cdn.pixabay.com/photo/2016/01/14/06/09/guitar-1139397_640.jpg", "https://cdn.pixabay.com/photo/2017/10/30/10/35/dance-2902034_640.jpg", "https://cdn.pixabay.com/photo/2017/09/17/11/10/luck-2758147_640.jpg", "https://cdn.pixabay.com/photo/2016/12/17/16/59/guitar-1913836_640.jpg"};
-        List<AllDesignItems> allDesignItems = new ArrayList<>();
+        List<LatestDesignsItems> latestDesignsItems = new ArrayList<>();
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < Titles.length; j++) {
-                AllDesignItems designItems = new AllDesignItems(Titles[j], Description[j], ImageUrls[j]);
-                allDesignItems.add(designItems);
+                LatestDesignsItems designItems = new LatestDesignsItems(Titles[j], Description[j], ImageUrls[j]);
+                latestDesignsItems.add(designItems);
             }
         }
-        return allDesignItems;
+        return latestDesignsItems;
     }
 
 }

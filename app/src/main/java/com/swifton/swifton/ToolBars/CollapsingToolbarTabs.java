@@ -36,9 +36,9 @@ public class CollapsingToolbarTabs extends AppCompatActivity {
         });
         ViewPager mViewPager = findViewById(R.id.viewpager);
         ViewPagerAdapter mViewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
-        mViewPagerAdapter.addFragment(AllDesignsFragment.newInstance(), "All Designs");
-        mViewPagerAdapter.addFragment(NativesFragment.newInstance(), "Natives");
-        mViewPagerAdapter.addFragment(MyOrdersFragment.newInstance(), "My Orders");
+        mViewPagerAdapter.addFragment(AllDesignsFragment.newInstance(), "Latest Designs");
+        mViewPagerAdapter.addFragment(NativesFragment.newInstance(), "Top Designs");
+        mViewPagerAdapter.addFragment(MyOrdersFragment.newInstance(), "Branded Designs");
         mViewPager.setAdapter(mViewPagerAdapter);
 
         TabLayout tabLayout =  findViewById(R.id.tabs);

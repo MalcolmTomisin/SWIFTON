@@ -74,32 +74,33 @@
                 android:id="@+id/txtloginemail"
                 android:layout_width="350dp"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:hint="@string/email"
                 android:layout_below="@+id/loginlabel1"
-                android:textColorHint="#222"
-                android:textColor="#222"
-                android:textSize="20sp"
-                android:inputType="textEmailAddress"
-                android:drawableEnd="@drawable/ic_email"
+                android:layout_centerHorizontal="true"
                 android:layout_marginTop="20dp"
-                android:padding="10dp"/>
+                android:drawableEnd="@drawable/ic_email"
+                android:hint="@string/email"
+                android:inputType="textEmailAddress"
+                android:padding="10dp"
+                android:textColor="#222"
+                android:textColorHint="@color/colorGray"
+                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/txtloginpswrd"
                 android:layout_width="350dp"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:hint="@string/password"
-                android:textColorHint="#222"
-                android:textColor="#222"
-                android:textSize="20sp"
                 android:layout_below="@id/txtloginemail"
+                android:layout_centerHorizontal="true"
                 android:layout_marginTop="50dp"
                 android:layout_marginBottom="10dp"
-                android:inputType="textPassword"
                 android:drawableEnd="@drawable/ic_key"
-                android:padding="10dp"/>
+                android:hint="@string/password"
+                android:inputType="textPassword"
+                android:padding="10dp"
+                android:textColor="#222"
+                android:textColorHint="#222"
+                android:textSize="20sp"
+                tools:textColorHint="@color/colorGray" />
 
             <TextView
                 android:id="@+id/loginforgotlabel"

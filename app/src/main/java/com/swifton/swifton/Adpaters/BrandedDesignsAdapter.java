@@ -19,38 +19,41 @@ import android.widget.Filter;
 import android.widget.Filterable;
 
 import com.squareup.picasso.Picasso;
+import com.swifton.swifton.Filters.BrandedDesignsFilter;
 import com.swifton.swifton.Helpers.ItemClickListener;
+import com.swifton.swifton.Holders.BrandedDesignsHolder;
 import com.swifton.swifton.Models.OrderItems;
 import com.swifton.swifton.R;
 
 import java.util.List;
 
-public class OrdersAdapter extends RecyclerView.Adapter implements Filterable {
+public class BrandedDesignsAdapter extends RecyclerView.Adapter implements Filterable {
 
     Bundle Title, Description, Backdrop;
 
-    List<OrderItems> orderItems, filterList;
+    public List<OrderItems> orderItems;
+    List<OrderItems> filterList;
     Context mContext;
-    OrderFilter orderFilter;
+    BrandedDesignsFilter orderFilter;
     int Desc;
 
-    public OrdersAdapter(List<OrderItems> orderitems, Context context){
+    public BrandedDesignsAdapter(List<OrderItems> orderitems, Context context){
         this.mContext = context;
         this.orderItems = orderitems;
     }
 
     @NonNull
     @Override
-    public OrdersHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public BrandedDesignsHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(mContext);
         View row=inflater.inflate(R.layout.custom_row_demo, parent, false);
-        return new OrdersHolder(row);
+        return new BrandedDesignsHolder(row);
     }
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         OrderItems currentOrderItem = orderItems.get(position);
-        OrdersHolder orderHolder = (OrdersHolder) holder;
+        BrandedDesignsHolder orderHolder = (BrandedDesignsHolder) holder;
         orderHolder.Title.setText(currentOrderItem.title);
         orderHolder.Description.setText(currentOrderItem.Description);
         DisplayMetrics displayMetrics = new DisplayMetrics();
@@ -127,7 +130,7 @@ public class OrdersAdapter extends RecyclerView.Adapter implements Filterable {
     public Filter getFilter() {
 
         if(orderFilter == null){
-            orderFilter = new OrderFilter(filterList, this);
+            orderFilter = new BrandedDesignsFilter(filterList, this);
         }
         return orderFilter;
     }

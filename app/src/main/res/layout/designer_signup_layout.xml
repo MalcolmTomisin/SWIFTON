@@ -43,7 +43,7 @@
             android:hint="@string/email">
 
             <EditText
-                android:id="@+id/txtdemail"
+                android:id="@+id/txtdsemail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableEnd="@drawable/ic_email"
@@ -60,7 +60,7 @@
             android:layout_marginTop="30dp">
 
             <EditText
-                android:id="@+id/txtdpassword"
+                android:id="@+id/txtdspassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableEnd="@drawable/ic_key"
@@ -70,14 +70,22 @@
         </android.support.design.widget.TextInputLayout>
 
         <Button
-            android:id="@+id/dLoginBtn"
+            android:id="@+id/dsignupBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:padding="10dp"
-            android:text="Login"
+            android:text="@string/signup"
             android:background="@color/colorPrimaryDark"
             android:textSize="20sp"/>
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/deviceID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColorHint="#000000"
+        android:hint="Device Id"
+        android:textSize="20sp"/>
 
 </LinearLayout>

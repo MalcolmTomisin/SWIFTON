@@ -6,7 +6,6 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.SearchView;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -14,8 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.mancj.materialsearchbar.MaterialSearchBar;
-import com.swifton.swifton.Adpaters.DemoAdapter;
-import com.swifton.swifton.Adpaters.OrdersAdapter;
+import com.swifton.swifton.Adpaters.BrandedDesignsAdapter;
 import com.swifton.swifton.Helpers.Space;
 import com.swifton.swifton.Models.OrderItems;
 import com.swifton.swifton.R;
@@ -29,7 +27,7 @@ import static com.swifton.swifton.R.id.recyclerViewMyOrders;
  * A simple {@link Fragment} subclass.
  */
 public class MyOrdersFragment extends Fragment {
-    OrdersAdapter orderadapter;
+    BrandedDesignsAdapter orderadapter;
     List<OrderItems> data_list;
 
     public static MyOrdersFragment newInstance() {
@@ -50,15 +48,15 @@ public class MyOrdersFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_my_orders, container, false);
 
         data_list = new ArrayList<>();
-        orderadapter = new OrdersAdapter(data_list, getActivity());
+        orderadapter = new BrandedDesignsAdapter(data_list, getActivity());
 
         MaterialSearchBar myordersSearch = view.findViewById(R.id.search_MyOrders);
         final RecyclerView recyclerViewOrders = view.findViewById(recyclerViewMyOrders);
         recyclerViewOrders.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerViewOrders.addItemDecoration(new Space(20, 1));
-        recyclerViewOrders.setAdapter(new OrdersAdapter(feedItems(), getContext()));
+        recyclerViewOrders.setAdapter(new BrandedDesignsAdapter(feedItems(), getContext()));
 
-        orderadapter = new OrdersAdapter(feedItems(),getContext());
+        orderadapter = new BrandedDesignsAdapter(feedItems(),getContext());
 
         myordersSearch.addTextChangeListener(new TextWatcher() {
             @Override
@@ -83,7 +81,7 @@ public class MyOrdersFragment extends Fragment {
 
 
                 if (!enabled)
-                    recyclerViewOrders.setAdapter(new OrdersAdapter(feedItems(), getContext()));
+                    recyclerViewOrders.setAdapter(new BrandedDesignsAdapter(feedItems(), getContext()));
             }
 
             @Override

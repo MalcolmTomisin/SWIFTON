@@ -7,11 +7,11 @@ import com.swifton.swifton.Models.TopDesigners;
 
 import java.util.ArrayList;
 
-public class CustomFilter extends Filter {
+public class TopDesginersFilter extends Filter {
     TopDesignersAdapter Adapter;
     ArrayList<TopDesigners> filterList;
 
-    public  CustomFilter(ArrayList<TopDesigners> filterList, TopDesignersAdapter adapter){
+    public TopDesginersFilter(ArrayList<TopDesigners> filterList, TopDesignersAdapter adapter){
         this.Adapter = adapter;
         this.filterList = filterList;
 

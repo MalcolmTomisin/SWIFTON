@@ -1,17 +1,18 @@
-package com.swifton.swifton.Adpaters;
+package com.swifton.swifton.Filters;
 
 import android.widget.Filter;
 
+import com.swifton.swifton.Adpaters.BrandedDesignsAdapter;
 import com.swifton.swifton.Models.OrderItems;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class OrderFilter extends Filter {
-    OrdersAdapter orderAdapters;
+public class BrandedDesignsFilter extends Filter {
+    BrandedDesignsAdapter orderAdapters;
     List<OrderItems> orderFilterList;
 
-    public OrderFilter(List<OrderItems> orderfilterList, OrdersAdapter orderadapter){
+    public BrandedDesignsFilter(List<OrderItems> orderfilterList, BrandedDesignsAdapter orderadapter){
         this.orderAdapters = orderadapter;
         this.orderFilterList = orderfilterList;
     }

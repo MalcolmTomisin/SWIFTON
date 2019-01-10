@@ -6,14 +6,12 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.SearchView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.mancj.materialsearchbar.MaterialSearchBar;
-import com.swifton.swifton.Adpaters.DemoAdapter;
-import com.swifton.swifton.Adpaters.NativesAdapter;
+import com.swifton.swifton.Adpaters.TopDesignsAdapter;
 import com.swifton.swifton.Helpers.Space;
 import com.swifton.swifton.Models.NativeItems;
 import com.swifton.swifton.R;
@@ -26,7 +24,7 @@ import java.util.List;
  */
 public class NativesFragment extends Fragment {
 
-    NativesAdapter nativeAdapter;
+    TopDesignsAdapter nativeAdapter;
     List<NativeItems> nativeItems;
 
     public static NativesFragment newInstance() {
@@ -54,9 +52,9 @@ public class NativesFragment extends Fragment {
         RecyclerView recyclerViewDemo = view.findViewById(R.id.recyclerViewNatives);
         recyclerViewDemo.setLayoutManager(layoutManager);
         recyclerViewDemo.addItemDecoration(new Space(20, 1));
-        recyclerViewDemo.setAdapter(new NativesAdapter(feedItems(), getContext()));
+        recyclerViewDemo.setAdapter(new TopDesignsAdapter(feedItems(), getContext()));
 
-        nativeAdapter = new NativesAdapter(feedItems(),getContext());
+        nativeAdapter = new TopDesignsAdapter(feedItems(),getContext());
 
 
 //        nativesSearch.setOnQueryTextListener(new SearchView.OnQueryTextListener() {

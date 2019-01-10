@@ -40,6 +40,7 @@ public class DesignersDashboardActivity extends AppCompatActivity implements Nav
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setIcon(R.drawable.ic_home);
 
         mdrawaerLayout = findViewById(R.id.dDrawerLayout);
 //        mdrawertoggle = new ActionBarDrawerToggle(this,mdrawaerLayout,R.string.open,R.string.close);

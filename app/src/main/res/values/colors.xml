@@ -2,7 +2,7 @@
 
 <resources>
     <color name="colorWhite">#FFFFFF</color>
-    <color name="colorGray">#A9A9A9</color>
+    <color name="colorGray">#a9a9a9</color>
     <color name="colorMaroonDark">#800000</color>
     <color name="colorMaroonDarkFaid">#d6800000</color>
     <color name="colorIndigoDark">#4B0082</color>
