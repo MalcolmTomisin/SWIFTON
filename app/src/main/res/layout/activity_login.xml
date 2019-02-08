@@ -115,6 +115,19 @@
                 android:textSize="15sp"
                 android:textColor="@color/colorGray" />
 
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="31dp"
+                android:layout_height="28dp"
+                android:layout_below="@+id/txtloginpswrd"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:clickable="true"
+                android:contentDescription="@string/google_sign_in"
+                app:srcCompat="@drawable/googleg_standard_color_18"
+                tools:layout_marginBottom="-30dp" />
+
 
         </RelativeLayout>
 
@@ -141,15 +154,14 @@
         android:id="@+id/signuplabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/loginbtn"
         android:layout_centerHorizontal="true"
-        android:textSize="15sp"
-        android:text="@string/signuphere"
-        android:textColor="#000"
+        android:layout_marginTop="33dp"
         android:fontFamily="@font/roboto_regular"
         android:padding="5dp"
-        android:layout_below="@+id/loginbtn"
-        android:layout_marginTop="10dp"
-        />
+        android:text="@string/signuphere"
+        android:textColor="#000"
+        android:textSize="15sp" />
 
 
-    </RelativeLayout>
+</RelativeLayout>

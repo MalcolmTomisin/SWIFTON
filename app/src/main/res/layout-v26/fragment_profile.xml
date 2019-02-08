@@ -75,38 +75,24 @@
                         android:padding="8dp"
                         android:drawableEnd="@drawable/ic_person"
                         android:autofillHints="Adekunle Ciroma Chukwudi"
-                         />
+                        tools:targetApi="o" />
                 </android.support.design.widget.TextInputLayout>
 
                 <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/email"
+                    android:hint="@string/address"
                     android:layout_margin="20dp"
                     app:hintTextAppearance="@android:style/TextAppearance.Medium">
 
                     <EditText
-                        android:id="@+id/mail"
+                        android:id="@+id/address"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textMultiLine"
                         android:padding="8dp"
                         android:drawableEnd="@drawable/ic_person"
-                        android:autofillHints="Mail" />
-                </android.support.design.widget.TextInputLayout>
-
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/state"
-                    android:layout_margin="20dp"
-                    app:hintTextAppearance="@android:style/TextAppearance.Medium">
-
-                    <Spinner
-                        android:id="@+id/state_spinner"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
-
+                        android:autofillHints="Address" />
                 </android.support.design.widget.TextInputLayout>
 
                 <android.support.design.widget.TextInputLayout
@@ -125,6 +111,37 @@
                         android:drawableEnd="@drawable/ic_person"/>
                 </android.support.design.widget.TextInputLayout>
 
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/state"
+                    android:layout_margin="20dp"
+                    app:hintTextAppearance="@android:style/TextAppearance.Medium">
+
+                    <EditText
+                        android:id="@+id/state"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text"
+                        android:padding="8dp"
+                        android:drawableEnd="@drawable/ic_person"/>
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/country"
+                    android:layout_margin="20dp"
+                    app:hintTextAppearance="@android:style/TextAppearance.Medium">
+
+                    <EditText
+                        android:id="@+id/country"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textMultiLine"
+                        android:padding="8dp"
+                        android:drawableEnd="@drawable/ic_person"/>
+                </android.support.design.widget.TextInputLayout>
 
                 <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"

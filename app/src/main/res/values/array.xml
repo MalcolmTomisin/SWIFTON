@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="states">
+        <item>Federal Capital Territory (FCT)</item>
+        <item>Abia</item>
+        <item>Adamawa</item>
+        <item>Akwa Ibom</item>
+        <item>Anambra</item>
+        <item>Bauchi</item>
+        <item>Bayelsa</item>
+        <item>Benue</item>
+        <item>Borno</item>
+        <item>Cross River</item>
+        <item>Delta</item>
+        <item>Ebonyi</item>
+        <item>Edo</item>
+        <item>Ekiti</item>
+        <item>Enugu</item>
+        <item>Gombe</item>
+        <item>Imo</item>
+        <item>Jigawa</item>
+        <item>Kaduna</item>
+        <item>Kano</item>
+        <item>Katsina</item>
+        <item>Kebbi</item>
+        <item>Kogi</item>
+        <item>Kwara</item>
+        <item>Lagos</item>
+        <item>Nasarawa</item>
+        <item>Niger</item>
+        <item>Ogun</item>
+        <item>Ondo</item>
+        <item>Osun</item>
+        <item>Oyo</item>
+        <item>Plateau</item>
+        <item>Rivers</item>
+        <item>Sokoto</item>
+        <item>Taraba</item>
+        <item>Yobe</item>
+        <item>Zamfara</item>
+    </string-array>
+
+    <string-array name="abia_states">
+        <item>Aba North</item>
+        <item>Aba South</item>
+        <item>Arochukwu</item>
+        <item>Bende</item>
+        <item>Ikwuano</item>
+        <item>Isiala Ngwa North</item>
+        <item>Isiala Ngwa South</item>
+        <item>Isuikwuato</item>
+        <item>Obi Ngwa</item>
+        <item>Ohafia</item>
+        <item>Osisioma Ngwa</item>
+        <item>Ugwunagbo</item>
+        <item>Ukwa East</item>
+        <item>Ukwa West</item>
+        <item>Umuahia North</item>
+        <item>Umuahia South</item>
+        <item>Umu Nneochi</item>
+        <item></item>
+    </string-array>
+</resources>
+    <!--Aba North Aba South Arochukwu Bende Ikwuano Isiala Ngwa North Isiala Ngwa South Isuikwuato Obi Ngwa Ohafia Osisioma Ngwa Ugwunagbo Ukwa East Ukwa West Umuahia North Umuahia South Umu Nneochi-->

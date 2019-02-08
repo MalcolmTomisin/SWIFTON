@@ -29,7 +29,8 @@
                 android:src="@drawable/swifton_logo"
                 android:layout_centerHorizontal="true"
                 android:padding="5dp"
-                android:elevation="6dp" />
+                android:elevation="6dp"
+                android:contentDescription="@string/logo" />
 
             <TextView
                 android:id="@+id/intolabel"
@@ -38,7 +39,7 @@
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
                 android:padding="10dp"
-                android:text="Welcome"
+                android:text="@string/welcome"
                 android:textColor="#ccc"
                 android:textSize="25sp"
                 android:layout_below="@+id/logo2"
@@ -102,126 +103,129 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/newcarview"
-        android:layout_marginTop="-30dp">
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="-31dp">
 
-        <LinearLayout 
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:focusable="true"
             android:orientation="vertical"
             android:paddingLeft="15dp"
-            android:paddingRight="15dp"
             android:paddingTop="30dp"
-            android:focusable="true"
-            android:layout_gravity="center_horizontal">
+            android:paddingRight="15dp">
 
             <Button
                 android:id="@+id/buttonToolbarFab"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto_regular"
-                android:textAllCaps="false"
-                android:textStyle="bold"
-                android:padding="10dp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/signlogbuttons"
-                android:text="Make Inquiries" />
+                android:fontFamily="@font/roboto_regular"
+                android:padding="10dp"
+                android:text="@string/make_inquiries"
+                android:textAllCaps="false"
+                android:textStyle="bold" />
+
             <Button
                 android:id="@+id/buttonCollapsingToolbarFab"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto_regular"
-                android:textAllCaps="false"
-                android:textStyle="bold"
-                android:padding="10dp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/signlogbuttons"
-                android:text="Become a dealer"/>
+                android:fontFamily="@font/roboto_regular"
+                android:padding="10dp"
+                android:text="@string/become_a_dealer"
+                android:textAllCaps="false"
+                android:textStyle="bold" />
+
             <Button
+                android:id="@+id/buttonToolbarTabs"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/buttonToolbarTabs"
-                android:fontFamily="@font/roboto_regular"
-                android:textAllCaps="false"
-                android:textStyle="bold"
-                android:padding="10dp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/signlogbuttons"
-                android:text="Find Tailors / Shops" />
+                android:fontFamily="@font/roboto_regular"
+                android:padding="10dp"
+                android:text="@string/find_tailors_shops"
+                android:textAllCaps="false"
+                android:textStyle="bold" />
+
             <Button
                 android:id="@+id/buttonCollapsingToolbarTabs"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto_regular"
-                android:textAllCaps="false"
-                android:textStyle="bold"
-                android:padding="10dp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/signlogbuttons"
-                android:text="Visit Bootique " />
+                android:fontFamily="@font/roboto_regular"
+                android:padding="10dp"
+                android:text="@string/visit_bootique"
+                android:textAllCaps="false"
+                android:textStyle="bold" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="4dp"
                 android:layout_marginTop="20dp"
                 android:background="@color/colorGray"
-                android:outlineSpotShadowColor="@color/colorGray"/>
+                android:outlineSpotShadowColor="@color/colorGray" />
 
             <TextView
+                android:id="@+id/cmdterms"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:text="Terms of Service"
-                android:textColor="@color/colorGray"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:elevation="6dp"
                 android:layout_marginTop="10dp"
-                android:textAllCaps="false"
+                android:elevation="6dp"
                 android:fontFamily="@font/roboto_thin"
                 android:padding="6dp"
-                android:id="@+id/cmdterms"/>
+                android:text="@string/terms_of_service"
+                android:textAllCaps="false"
+                android:textColor="@color/colorGray"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/cmdpolicy"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:text="Policies"
-                android:textColor="@color/colorGray"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:elevation="6dp"
                 android:layout_marginTop="10dp"
-                android:textAllCaps="false"
+                android:elevation="6dp"
                 android:fontFamily="@font/roboto_thin"
                 android:padding="6dp"
-                android:id="@+id/cmdpolicy"/>
+                android:text="@string/policies"
+                android:textAllCaps="false"
+                android:textColor="@color/colorGray"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/designerSignup"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:text="Sign up as Designer"
-                android:textColor="@color/colorGray"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:elevation="6dp"
                 android:layout_marginTop="10dp"
-                android:textAllCaps="false"
+                android:elevation="6dp"
                 android:fontFamily="@font/roboto_thin"
                 android:padding="6dp"
-                android:id="@+id/designerSignup"/>
+                android:text="@string/sign_up_as_designer"
+                android:textAllCaps="false"
+                android:textColor="@color/colorGray"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/designerLogin"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:text="Sign in as Designer"
-                android:textColor="@color/colorGray"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:elevation="6dp"
                 android:layout_marginTop="10dp"
-                android:textAllCaps="false"
+                android:elevation="6dp"
                 android:fontFamily="@font/roboto_thin"
                 android:padding="6dp"
-                android:id="@+id/designerLogin"/>
-
+                android:text="@string/sign_in_as_designer"
+                android:textAllCaps="false"
+                android:textColor="@color/colorGray"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
 
         </LinearLayout>

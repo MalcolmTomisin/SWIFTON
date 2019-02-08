@@ -1,9 +1,8 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">SwiftON</string>
     <string name="signup">Signup</string>
     <string name="user_device_id">User Device ID</string>
     <string name="password">Password</string>
-    <string name="email">Email</string>
     <string name="login">Login</string>
     <string name="forgot_password">Forgot Password?</string>
     <string name="header_banner">header banner</string>
@@ -40,4 +39,24 @@
     <string name="password_error">Invalid Password</string>
     <string name="field_required_error">Field Required</string>
     <string name="invalid_email_error">Invalid Email</string>
+    <string name="google_sign_in">google_sign_in</string>
+    <string name="bio">Bio</string>
+    <string name="phone">Phone</string>
+    <string name="email" tools:ignore="ExtraTranslation">Email</string>
+    <string name="country">Country</string>
+    <string name="state">State</string>
+    <string name="city">City</string>
+    <string name="address">Address</string>
+    <string name="fullname">FullName</string>
+    <string name="finish">Finish</string>
+    <string name="welcome">Welcome</string>
+    <string name="make_inquiries">Make Inquiries</string>
+    <string name="become_a_dealer">Become a dealer</string>
+    <string name="find_tailors_shops">Find Tailors / Shops</string>
+    <string name="visit_bootique">Visit Bootique</string>
+    <string name="terms_of_service">Terms of Service</string>
+    <string name="policies">Policies</string>
+    <string name="sign_up_as_designer">Sign up as Designer</string>
+    <string name="sign_in_as_designer">Sign in as Designer</string>
+    <string name="logo">Logo</string>
 </resources>
