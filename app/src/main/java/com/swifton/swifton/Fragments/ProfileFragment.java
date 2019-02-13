@@ -10,18 +10,22 @@ import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.swifton.swifton.R;
+import com.swifton.swifton.UserDashboardActivity;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -30,7 +34,7 @@ import static android.app.Activity.RESULT_OK;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ProfileFragment extends Fragment implements View.OnClickListener {
+public class ProfileFragment extends Fragment implements View.OnClickListener, TextView.OnEditorActionListener {
      ImageView profileImageEdit;
      EditText textName, textPhone, textMail, textBio;
      CircleImageView profileImage;
@@ -39,20 +43,28 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
      private SharedPreferences mPreferences;
      private String prefFile =
              "com.skillslevel.swifton.sharedprefs";
-     private String PREF_DISPLAY, PREF_EMAIL,PREF_ID ;
-     private String personEmail, personName, personId;
+     private String PREF_DISPLAY, PREF_EMAIL,PREF_ID, PREF_PHONE, PREF_BIO, PREF_SPINNER ;
+     private String personEmail, personName, personId, personPhone, personBio, personState;
     static final int REQUEST_IMAGE_CAPTURE = 1;
     GoogleSignInAccount acct;
     String mCurrentPhotoPath;
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (savedInstanceState != null) {
+    public void onStart() {
+        super.onStart();
+        if (mPreferences != null){
             personEmail = mPreferences.getString(PREF_EMAIL, "");
             personName = mPreferences.getString(PREF_DISPLAY, "");
             personId = mPreferences.getString(PREF_ID, "");
+        }
+    }
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (savedInstanceState != null) {
+
+            if (mPreferences != null)
             textName.setText(personName);
             textMail.setText(PREF_EMAIL);
         }
@@ -92,17 +104,22 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
 
         GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(getActivity());
         if (acct != null) {
-            String personName = acct.getDisplayName();
-            String personEmail = acct.getEmail();
-            String personId = acct.getId();
+             personName = acct.getDisplayName();
+             personEmail = acct.getEmail();
+             personId = acct.getId();
             Uri personPhoto = acct.getPhotoUrl();
 
             textName.setText(personName);
             profileImage.setImageURI(personPhoto);
             textMail.setText(personEmail);
 
+        } else {
+            personName = textName.getText().toString().trim();
+            personEmail = textMail.getText().toString().trim();
+            personPhone = textPhone.getText().toString().trim();
+            personBio = textBio.getText().toString().trim();
+            personState = spinner.toString();
         }
-
     }
 
     public ProfileFragment() {
@@ -131,6 +148,8 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
                 dispatchTakePictureIntent();
                 break;
             case R.id.btnFinish:
+                setmPreferences();
+
 
         }
     }
@@ -144,4 +163,33 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
             profileImage.setImageBitmap(imageBitmap);
         }
     }
-}
+
+    @Override
+    public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+        if ( actionId == EditorInfo.IME_ACTION_SEND || event.getKeyCode() == KeyEvent.KEYCODE_ENTER
+                && event.getAction() == KeyEvent.ACTION_DOWN){
+            setmPreferences();
+            return true;
+        }
+        return false;
+    }
+
+    public void setmPreferences(){
+            SharedPreferences.Editor prefEditor = mPreferences.edit();
+            if (personName != null)
+                prefEditor.putString(PREF_DISPLAY, personName);
+            if (personEmail != null)
+                prefEditor.putString(PREF_EMAIL, personEmail);
+            if (personId != null)
+                prefEditor.putString(PREF_ID, personId);
+            if (personPhone != null)
+                prefEditor.putString(PREF_PHONE, personPhone);
+            if (personState != null)
+                prefEditor.putString(PREF_SPINNER, personState);
+            if (personBio != null)
+                prefEditor.putString(PREF_BIO, personBio);
+
+                prefEditor.apply();
+        }
+    }
+
